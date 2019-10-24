@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SOF302_Assignment_PS08445:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6698f021-9359-4c4e-984e-93aaafc9d303" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - employee@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - employee@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - employee@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="employee: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/apache-maven-3.6.1" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1QxCKasCuYxP3Rq152xNo10GqWG" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SOF302Lab7" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.37311828" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.poly.ps08445.repositories.impl" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.poly.ps08445.services" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views\authentication" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web\img" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.poly.ps08445.interceptor" />
+      <recent name="com.poly.ps08445.repositories" />
+      <recent name="com.poly.ps08445.repositories.impl" />
+      <recent name="com.poly.ps08445.controller.web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources\i18n-res" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\admin\img" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web\img" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\target\SOF302_Assignment_PS08445-1.0\resources\admin\img" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.19">
+    <configuration name="PhongBan.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/views/admin/PhongBan.jsp" />
+      <deployment>
+        <artifact name="SOF302_Assignment_PS08445:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/SOF302_Assignment_PS08445_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="PhongBan_jsp_(1)_SOF302_Assignment_PS08445" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SOF302_Assignment_PS08445:war" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="PhongBan.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/views/admin/PhongBan.jsp" />
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <deployment>
+        <artifact name="SOF302_Assignment_PS08445:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/SOF302_Assignment_PS08445_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="PhongBan_jsp_SOF302_Assignment_PS08445" />
+        <option name="HTTP_PORT" value="8081" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58573" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SOF302_Assignment_PS08445:war" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.19" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <deployment>
+        <artifact name="SOF302_Assignment_PS08445:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/SOF302_Assignment_PS08445" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SOF302_Assignment_PS08445" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57509" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SOF302_Assignment_PS08445:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 9.0.19" />
+      <item itemvalue="Tomcat Server.PhongBan.jsp" />
+      <item itemvalue="Tomcat Server.PhongBan.jsp (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Tomcat Server.PhongBan.jsp (1)" />
+        <item itemvalue="Tomcat Server.PhongBan.jsp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@575909c3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6698f021-9359-4c4e-984e-93aaafc9d303" name="Default Changelist" comment="" />
+      <created>1568702796441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568702796441</updated>
+      <workItem from="1568702799229" duration="13236000" />
+      <workItem from="1568854976024" duration="168000" />
+      <workItem from="1569031565643" duration="395000" />
+      <workItem from="1569251981151" duration="3704000" />
+      <workItem from="1569285154437" duration="7662000" />
+      <workItem from="1569327833694" duration="12401000" />
+      <workItem from="1569395568521" duration="8111000" />
+      <workItem from="1569414149274" duration="7000" />
+      <workItem from="1569419117010" duration="1422000" />
+      <workItem from="1569458657697" duration="1813000" />
+      <workItem from="1569469907180" duration="3287000" />
+      <workItem from="1569502692324" duration="1818000" />
+      <workItem from="1569508097690" duration="1251000" />
+      <workItem from="1569546839082" duration="2927000" />
+      <workItem from="1569573861852" duration="4052000" />
+      <workItem from="1569635103176" duration="632000" />
+      <workItem from="1569685250566" duration="1783000" />
+      <workItem from="1569721266465" duration="2363000" />
+      <workItem from="1569770401761" duration="678000" />
+      <workItem from="1569771780623" duration="2073000" />
+      <workItem from="1569814313900" duration="4174000" />
+      <workItem from="1569833590496" duration="6559000" />
+      <workItem from="1569890300588" duration="4292000" />
+      <workItem from="1569915553657" duration="8250000" />
+      <workItem from="1569937234210" duration="1871000" />
+      <workItem from="1570001077446" duration="9304000" />
+      <workItem from="1570021371189" duration="12000" />
+      <workItem from="1570022259100" duration="13066000" />
+      <workItem from="1570063052560" duration="4162000" />
+      <workItem from="1570090106967" duration="19288000" />
+      <workItem from="1570157928804" duration="32707000" />
+      <workItem from="1570235758551" duration="5299000" />
+      <workItem from="1570262149091" duration="22749000" />
+      <workItem from="1570325828980" duration="11803000" />
+      <workItem from="1570350496161" duration="17309000" />
+      <workItem from="1570376671871" duration="3153000" />
+      <workItem from="1570449221144" duration="2671000" />
+      <workItem from="1570495181758" duration="228000" />
+      <workItem from="1570495646998" duration="4798000" />
+      <workItem from="1570506924126" duration="601000" />
+      <workItem from="1570524532474" duration="18218000" />
+      <workItem from="1570609978310" duration="4492000" />
+      <workItem from="1570635379870" duration="3956000" />
+      <workItem from="1570667809136" duration="5121000" />
+      <workItem from="1570696897989" duration="8875000" />
+      <workItem from="1570708521838" duration="5259000" />
+      <workItem from="1570797848084" duration="1935000" />
+      <workItem from="1570840749270" duration="637000" />
+      <workItem from="1570842671114" duration="1789000" />
+      <workItem from="1570852102187" duration="20000" />
+      <workItem from="1570853271541" duration="417000" />
+      <workItem from="1570867435060" duration="24258000" />
+      <workItem from="1570934243776" duration="15069000" />
+      <workItem from="1570975823871" duration="5315000" />
+      <workItem from="1571117180023" duration="631000" />
+      <workItem from="1571129601267" duration="691000" />
+      <workItem from="1571213035630" duration="5117000" />
+      <workItem from="1571232245088" duration="315000" />
+      <workItem from="1571238081599" duration="4103000" />
+      <workItem from="1571272651497" duration="4715000" />
+      <workItem from="1571297965767" duration="23800000" />
+      <workItem from="1571361940379" duration="10072000" />
+      <workItem from="1571400099605" duration="4000000" />
+      <workItem from="1571445055736" duration="5091000" />
+      <workItem from="1571475077611" duration="793000" />
+      <workItem from="1571535456627" duration="2695000" />
+      <workItem from="1571558500072" duration="6230000" />
+      <workItem from="1571667808337" duration="3447000" />
+      <workItem from="1571704478936" duration="3166000" />
+      <workItem from="1571879276076" duration="2982000" />
+      <workItem from="1571895130236" duration="682000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SOF302_Assignment_PS08445$Tomcat_9_0_19.ic" NAME="Tomcat 9.0.19 Coverage Results" MODIFIED="1570239406302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
