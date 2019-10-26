@@ -2,23 +2,15 @@ package com.poly.ps08445.dto;
 
 import com.poly.ps08445.entities.Record;
 import com.poly.ps08445.utils.TimeUtil;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecordDTO {
     private Integer id;
-    @NotNull(message = "Vui lòng chọn nhân viên")
     private Integer staffId;
     private String staffFullName;
     private String staffEmail;
-    @NotNull(message = "Vui lòng chọn loại đánh giá")
     private Boolean type;
-    @NotEmpty(message = "Lý do không được để trống")
     private String reason;
     private String date;
 

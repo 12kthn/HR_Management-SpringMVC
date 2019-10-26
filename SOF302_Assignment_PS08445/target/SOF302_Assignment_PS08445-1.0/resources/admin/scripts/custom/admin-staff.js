@@ -3,6 +3,7 @@ $(document).ready(function () {
     var files = [];
     var table = $("#table");
     var form = $("#form");
+    var formEvaluate = $("#formEvaluate");
     var page = $("#page");
     var imagePreview = $('#imagePreview');
     var btnInsert = $("#btnInsert");
@@ -14,6 +15,20 @@ $(document).ready(function () {
     var maxResult = $("#maxResults").val();
     var d = new Date();
     var today = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    $('#datetimepicker1').datetimepicker({
+        format: 'DD/MM/YYYY'
+    }).on('dp.change dp.show', function() {
+        form.data('bootstrapValidator')
+            .updateStatus('birthday', 'NOT_VALIDATED')
+            .validateField('birthday');
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'DD/MM/YYYY'
+    }).on('dp.change dp.show', function() {
+        formEvaluate.data('bootstrapValidator')
+            .updateStatus('date', 'NOT_VALIDATED')
+            .validateField('date')
+    });
 
     function updateTotalPages() {
         var data = {
@@ -173,6 +188,7 @@ $(document).ready(function () {
         };
         console.log(data);
         $.ajax({
+            async: false,
             type: "POST",
             contentType: 'application/json; charset=utf-8',
             dataType: 'text',
@@ -188,104 +204,115 @@ $(document).ready(function () {
         })
     }
 
-    btnInsert.click(function () {
-        var data = getArrayData();
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/staff/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $("div.alert").remove();
-                    if (files.length !== 0) {
-                        console.log(files);
-                        var form = new FormData();
-                        form.append("image", files[0]);
-                        $.ajax({
-                            type: "POST",
-                            url: contextPath + "/api/staff/uploadImage",
-                            enctype: 'multipart/form-data',
-                            contentType: false,
-                            data: form,
-                            processData: false,
-                            success: function (value) {
-                                if (value) {
-                                    insertStaff(data);
-                                } else {
-                                    Swal.fire("Có lỗi xảy ra", "Upload ảnh thất bại", "error");
-                                }
-                            }
-                        })
-                    } else {
-                        insertStaff(data);
-                    }
-                } else {
-                    console.log(res);
-                    $("div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("." + key).after("<div class='alert alert-warning alert-dismissible role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
+    form.bootstrapValidator({
+        message: 'Bạn chưa điền vào trường này',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {}
                 }
             },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Thêm nhân viên thất bại", "error");
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'Bạn chưa chọn giới tính'
+                    }
+                }
+            },
+            birthday: {
+                validators: {
+                    notEmpty: {
+                        message: 'Bạn chưa chọn ngày sinh'
+                    },
+                    date: {
+                        format: 'DD/MM/YYYY'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {}
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {}
+                }
+            },
+            salary: {
+                validators: {
+                    notEmpty: {}
+                }
+            },
+            departId: {
+                validators: {
+                    notEmpty: {}
+                }
             }
-        });
+        }
+    });
 
+    btnInsert.click(function () {
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            if (files.length !== 0) {
+                var formData = new FormData();
+                formData.append("image", files[0]);
+                $.ajax({
+                    type: "POST",
+                    url: contextPath + "/api/staff/uploadImage",
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    data: formData,
+                    processData: false,
+                    success: function (value) {
+                        if (value) {
+                            insertStaff(data);
+                        } else {
+                            Swal.fire("Có lỗi xảy ra", "Upload ảnh thất bại", "error");
+                        }
+                    }
+                })
+            } else {
+                Swal.fire("Cảnh báo", "Vui lòng chọn ảnh", "warning");
+            }
+        }
     });
 
     btnUpdate.click(function () {
-        var data = getArrayData();
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/staff/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $("div.alert").remove();
-                    if (files.length !== 0) {
-                        var form = new FormData();
-                        form.append("image", files[0]);
-                        $.ajax({
-                            type: "POST",
-                            url: contextPath + "/api/staff/uploadImage",
-                            enctype: 'multipart/form-data',
-                            contentType: false,
-                            data: form,
-                            processData: false,
-                            success: function (value) {
-                                if (value) {
-                                    updateStaff(data);
-                                } else {
-                                    Swal.fire("Có lỗi xảy ra", "Upload ảnh thất bại", "error");
-                                }
-                            }
-                        })
-                    } else {
-                        updateStaff(data);
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            if (files.length !== 0) {
+                var formData = new FormData();
+                formData.append("image", files[0]);
+                $.ajax({
+                    type: "POST",
+                    url: contextPath + "/api/staff/uploadImage",
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    data: formData,
+                    processData: false,
+                    success: function (value) {
+                        if (value) {
+                            updateStaff(data);
+                        } else {
+                            Swal.fire("Có lỗi xảy ra", "Upload ảnh thất bại", "error");
+                        }
                     }
-                } else {
-                    console.log(res);
-                    $("div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("." + key).after("<div class='alert alert-warning alert-dismissible role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
-                }
-            },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Cập nhật nhân viên thất bại", "error");
+                })
+            } else {
+                updateStaff(data);
             }
-        });
+        }
     });
 
     btnDelete.click(function () {
@@ -313,6 +340,7 @@ $(document).ready(function () {
                 });
                 Swal.fire("Thành công", "Đã xóa hết các nhân viên được chọn", "success")
                     .then(function () {
+                        btnReset.trigger("click");
                         btnDelete.prop('disabled', true);
                         updateTotalPages();
                     })
@@ -321,8 +349,8 @@ $(document).ready(function () {
     });
 
     btnReset.click(function () {
-        $("#form")[0].reset();
-        $("#form input[type=text]").val("");
+        form.bootstrapValidator('resetForm', true);
+        formEvaluate.bootstrapValidator('resetForm', true);
         $("#photo").val("");
         imagePreview.css("background-image", "");
         btnInsert.removeAttr("disabled");
@@ -334,9 +362,8 @@ $(document).ready(function () {
         updateTotalPages();
     });
 
-
     table.on("click", "tbody tr", function () {
-        $("div.alert").remove();
+        btnReset.trigger("click");
         $(this).addClass("highlight").siblings().removeClass("highlight");
         btnInsert.prop("disabled", true);
         btnUpdate.prop('disabled', false);
@@ -356,7 +383,9 @@ $(document).ready(function () {
         }
 
         var birthdayPart = $(this).find("td:eq(3)").text().split("/");
-        $("#birthday").val(birthdayPart[2] + "-" + birthdayPart[1] + "-" + birthdayPart[0]);
+        var birthday = new Date(birthdayPart[2], birthdayPart[1] - 1, birthdayPart[0]);
+        $("#datetimepicker1").data("DateTimePicker").date(birthday);
+
 
         $("#phone").val($(this).find("td:eq(4)").text());
 
@@ -372,7 +401,7 @@ $(document).ready(function () {
         $("#notes").val($(this).find("td:eq(8)").text());
         $("#photo").val($(this).find("td:eq(9)").text());
         $("#imagePreview").css("background-image", "url(" + contextPath + "/resources/admin/img/" + $("#photo").val() + ")");
-
+        form.data('bootstrapValidator').validate();
     });
 
     table.on("click", "#checkAll", function () {
@@ -400,39 +429,49 @@ $(document).ready(function () {
         $("#date").val(today);
     });
 
-    $("#formEvaluate").submit(function (e) {
-        e.preventDefault();
-        var formData = $("#formEvaluate").serializeArray();
-        var data = {};
-        $(formData).each(function (index, obj) {
-            data[obj.name] = obj.value;
-        });
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/record/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $("#formEvaluate div.alert").remove();
-                    insertRecord(data);
-                } else {
-                    console.log(res);
-                    $("#formEvaluate div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("." + key).after("<div class='alert alert-warning alert-dismissible' role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
+    formEvaluate.bootstrapValidator({
+        message: 'Bạn chưa điền vào trường này',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            type: {
+                validators: {
+                    notEmpty: {}
                 }
             },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Thêm đánh giá thất bại", "error");
+            date: {
+                validators: {
+                    notEmpty: {
+                        message: 'Bạn chưa chọn ngày sinh'
+                    },
+                    date: {
+                        format: 'DD/MM/YYYY'
+                    }
+                }
+            },
+            reason: {
+                validators: {
+                    notEmpty: {}
+                }
             }
-        })
+        }
+    });
+
+    $("#btnInsertRecord").click(function (e) {
+        var bootstrapValidator = formEvaluate.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var formData = formEvaluate.serializeArray();
+            var data = {};
+            $(formData).each(function (index, obj) {
+                data[obj.name] = obj.value;
+            });
+            console.log(data);
+            insertRecord(data);
+        }
     });
 
     function insertRecord(data) {

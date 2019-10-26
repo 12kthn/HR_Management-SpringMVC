@@ -122,4 +122,20 @@ public class Staff implements Serializable {
     public String toString() {
         return fullName;
     }
+
+    public String toString2() {
+        return "Staff{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", gender=" + gender +
+                ", birthday=" + birthday +
+                ", photo='" + photo + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", salary=" + salary +
+                ", notes='" + notes + '\'' +
+                ", depart=" + depart +
+                ", records=" + records +
+                '}';
+    }
 }

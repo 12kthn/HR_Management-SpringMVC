@@ -16,7 +16,7 @@
                 <div class="col-md-4">
                     <div class="panel">
                         <div class="panel-body">
-                            <div class="form-group">
+                            <div class="form-group" style=" height: 83px;">
                                 <label for="depart">Phòng ban</label>
                                 <select class="form-control" id="depart" name="departId">
                                     <option value="-1"></option>
@@ -25,15 +25,19 @@
                                     </c:forEach>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style=" height: 83px;">
                                 <label for="fullName_search">Họ và tên</label>
                                 <input type="text" class="form-control" id="fullName_search" name="fullName_search">
                             </div>
-                            <button type="button" class="btn btn-primary btn-block" id="btnSearch"><i class="fa fa-search"></i> Tìm kiếm</button>
-                            <div class="form-group" style="margin: 15px 0 0 0">
+                            <div class="form-group" style=" height: 53px;">
+                                <button type="button" class="btn btn-primary btn-block" id="btnSearch">
+                                    <i class="fa fa-search"></i> Tìm kiếm
+                                </button>
+                            </div>
+                            <div class="form-group">
                                 <label for="staff">Danh sách nhân viên</label>
                                 <select class="form-control" id="staff">
-                                    <option value=""></option>
+                                    <option value="-1"></option>
                                     <c:forEach var="staff" items="${staffs}">
                                         <option value="${staff.id}">${staff.fullName}</option>
                                     </c:forEach>
@@ -53,11 +57,11 @@
                                         <input type="hidden" id="totalPages" name="totalPages" value="${totalPages}">
                                         <input type="hidden" id="maxResults" name="maxResults" value="10">
                                         <input type="hidden" name="page" id="page">
-                                        <div class="form-group staffId">
+                                        <div class="form-group" style=" height: 83px;">
                                             <label for="name">Họ và tên</label>
-                                            <input type="text" class="form-control" id="name" disabled>
+                                            <input type="text" class="form-control" id="name" name="fullName" readonly>
                                         </div>
-                                        <div class="form-group type">
+                                        <div class="form-group" style=" height: 83px;">
                                             <label for="type">Loại</label>
                                             <select class="form-control" id="type" name="type">
                                                 <option value="" name="loai"></option>
@@ -65,13 +69,16 @@
                                                 <option value="false" name="loai">Kỷ luật</option>
                                             </select>
                                         </div>
-                                        <div class="form-group date">
+                                        <div class="form-group" style=" height: 83px;">
                                             <label for="date">Ngày ghi nhận</label>
-                                            <input type="date" class="form-control" name="date" id="date">
+                                            <div class="input-group date" id="datetimepicker">
+                                                <input type="text" class="form-control" name="date" id="date">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group reason">
+                                        <div class="form-group" style=" height: 210px;">
                                             <label for="reason">Lý do</label>
                                             <textarea class="form-control" name="reason" id="reason" rows="8"></textarea>
                                         </div>
@@ -163,11 +170,11 @@
                             <form role="form" method="post" id="formEmail">
                                 <div class="form-group">
                                     <label for="to"> Người nhận:</label>
-                                    <input type="email" class="form-control" id="to" name="to" required maxlength="50">
+                                    <input type="email" class="form-control" id="to" name="to" required maxlength="50" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="subject"> Tiêu đề</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" required maxlength="50">
+                                    <input type="text" class="form-control" id="subject" name="subject" required maxlength="50" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="cc"> CC</label>

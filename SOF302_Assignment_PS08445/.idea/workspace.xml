@@ -98,7 +98,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.37311828" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -107,12 +107,12 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.poly.ps08445.services" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views\authentication" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources\i18n-res" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\admin\img" />
       <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web\img" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\target\SOF302_Assignment_PS08445-1.0\resources\admin\img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.poly.ps08445.interceptor" />
@@ -120,12 +120,12 @@
       <recent name="com.poly.ps08445.repositories.impl" />
       <recent name="com.poly.ps08445.controller.web" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\admin\scripts" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\admin\css" />
       <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\resources\i18n-res" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\admin\img" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\resources\web\img" />
-      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\target\SOF302_Assignment_PS08445-1.0\resources\admin\img" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views\authentication" />
+      <recent name="D:\work\fpt\SOF302 - Lap trinh Java 5\SOF302_Assignment_PS08445\src\main\webapp\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,6 +433,9 @@
       <workItem from="1571704478936" duration="3166000" />
       <workItem from="1571879276076" duration="2982000" />
       <workItem from="1571895130236" duration="682000" />
+      <workItem from="1571917734130" duration="123000" />
+      <workItem from="1571918046448" duration="608000" />
+      <workItem from="1572077030719" duration="20121000" />
     </task>
     <servers />
   </component>

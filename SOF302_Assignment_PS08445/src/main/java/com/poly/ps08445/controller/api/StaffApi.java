@@ -1,24 +1,16 @@
 package com.poly.ps08445.controller.api;
 
-import com.poly.ps08445.JsonResponse.StaffDTOJsonResponse;
-import com.poly.ps08445.dto.DepartDTO;
 import com.poly.ps08445.dto.StaffDTO;
-import com.poly.ps08445.entities.Staff;
 import com.poly.ps08445.services.DepartService;
 import com.poly.ps08445.services.StaffService;
 import com.poly.ps08445.utils.NumberUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
-import javax.validation.Valid;
 import java.io.File;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/staff")
@@ -69,52 +61,6 @@ public class StaffApi {
         return html.toString();
     }
 
-    @PostMapping(value = "/validate", produces = "application/json", consumes = "application/json; charset=UTF-8")
-    public StaffDTOJsonResponse validate(@RequestBody @Validated StaffDTO staffDTO, BindingResult result) {
-        StaffDTOJsonResponse response = new StaffDTOJsonResponse();
-        Map<String, String> errors = new HashMap<>();
-        if (result.hasErrors()){
-            Map<Integer, String> fieldErrorsOrder = new HashMap<>();
-            Set<String> fieldErrors = new HashSet<>();
-            fieldErrorsOrder.put(1, "fullName");
-            fieldErrorsOrder.put(2, "gender");
-            fieldErrorsOrder.put(3, "birthday");
-            fieldErrorsOrder.put(4, "phone");
-            fieldErrorsOrder.put(5, "email");
-            fieldErrorsOrder.put(6, "salary");
-            fieldErrorsOrder.put(7, "departId");
-            fieldErrorsOrder.put(8, "photo");
-            for (FieldError fieldError: result.getFieldErrors()){
-                fieldErrors.add(fieldError.getField());
-            }
-            String firstFieldError = "";
-            for (int i = 1; i <= fieldErrorsOrder.size(); i++){
-                if (fieldErrors.contains(fieldErrorsOrder.get(i))){
-                    firstFieldError = fieldErrorsOrder.get(i);
-                    break;
-                }
-            }
-            errors.put(firstFieldError, result.getFieldError(firstFieldError).getDefaultMessage());
-            response.setErrorMessages(errors);
-            response.setValidated(false);
-        } else if (!staffDTO.getFullName().matches("[\\p{L}\\p{M}0-9 ]+")) {
-            errors.put("name", "Họ tên không được chứa các ký tự đặc biệt");
-            response.setValidated(false);
-            response.setErrorMessages(errors);
-        } else if (!staffDTO.getPhone().matches("0[1-9][0-9]{8,9}")) {
-            errors.put("phone", "Số điện thoại không đúng định dạng");
-            response.setValidated(false);
-            response.setErrorMessages(errors);
-        } else if (!staffDTO.getEmail().matches("\\w+@\\w+(\\.\\w+){1,2}")) {
-            errors.put("email", "Email không đúng định dạng");
-            response.setValidated(false);
-            response.setErrorMessages(errors);
-        } else {
-            response.setValidated(true);
-        }
-        return response;
-    }
-
     @PostMapping(value = "/insert", produces = "text/plain; charset=UTF-8", consumes = "application/json; charset=UTF-8")
     public String insert(@RequestBody StaffDTO staffDTO){
         return staffService.insertStaff(staffDTO) + "";
@@ -122,6 +68,7 @@ public class StaffApi {
 
     @PostMapping(value = "/update", produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
     public boolean update(@RequestBody StaffDTO staffDTO){
+        System.out.println(staffDTO.toString());
         return staffService.updateStaff(staffDTO);
     }
 
@@ -144,16 +91,14 @@ public class StaffApi {
     private String createHtmlTableContent(StaffDTO dto){
         List<StaffDTO> list = staffService.findByFullNameAndDepart(dto);
         StringBuilder html = new StringBuilder();
-        System.out.println(list.size() + ".");
         for (StaffDTO staffDTO:list){
-            System.out.println("zo");
             html.append("<tr>");
             html.append("<td><input type=\"checkbox\" value=\"").append(staffDTO.getId()).append("\"></td>");
             html.append("<td>").append(staffDTO.getFullName()).append("</td>");
             if (staffDTO.getGender() != null && staffDTO.getGender()){
-                html.append("<td>Nam</td>");
+                html.append("<td class=\"text-center\">Nam</td>");
             } else {
-                html.append("<td>Nữ</td>");
+                html.append("<td class=\"text-center\">Nữ</td>");
             }
             html.append("<td>").append(staffDTO.getBirthday()).append("</td>");
             html.append("<td>").append(staffDTO.getPhone()).append("</td>");

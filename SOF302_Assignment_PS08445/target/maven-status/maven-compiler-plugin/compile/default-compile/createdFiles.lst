@@ -1,6 +1,5 @@
 com\poly\ps08445\services\impl\StaffServiceImpl.class
 com\poly\ps08445\services\DepartService.class
-com\poly\ps08445\JsonResponse\StaffDTOJsonResponse.class
 com\poly\ps08445\repositories\impl\StaffRepositoryImpl.class
 com\poly\ps08445\services\RecordService.class
 com\poly\ps08445\controller\web\HomeController.class
@@ -27,14 +26,12 @@ com\poly\ps08445\dto\UserDTO.class
 com\poly\ps08445\services\UserService.class
 com\poly\ps08445\repositories\impl\AbstracRepository.class
 com\poly\ps08445\controller\admin\RecordController.class
-com\poly\ps08445\JsonResponse\RecordDTOJsonResponse.class
 com\poly\ps08445\controller\api\StaffApi.class
 com\poly\ps08445\dto\DepartDTO.class
 com\poly\ps08445\controller\api\MailerAPI.class
 com\poly\ps08445\repositories\DepartRepository.class
 com\poly\ps08445\entities\Record.class
 com\poly\ps08445\dto\StaffScoreDTO.class
-com\poly\ps08445\JsonResponse\DepartDTOJsonResponse.class
 com\poly\ps08445\repositories\impl\StoredProcedureRepositoryImpl.class
 com\poly\ps08445\repositories\StaffRepository.class
 com\poly\ps08445\controller\api\AuthenticationAPI.class
@@ -56,7 +53,5 @@ com\poly\ps08445\services\impl\RecordServiceImpl.class
 com\poly\ps08445\entities\User.class
 com\poly\ps08445\services\impl\DepartServiceImpl.class
 com\poly\ps08445\controller\admin\HomeController.class
-com\poly\ps08445\JsonResponse\UserDTOJsonResponse.class
 com\poly\ps08445\controller\authentication\AuthenticationController.class
 com\poly\ps08445\repositories\impl\DepartRepositoryImpl.class
-com\poly\ps08445\JsonResponse\EmailDTOJsonResponse.class

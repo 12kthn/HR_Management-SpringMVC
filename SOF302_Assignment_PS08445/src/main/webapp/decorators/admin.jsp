@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="<c:url value='/resources/admin/vendor/bootstrap/css/bootstrap.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/admin/css/bootstrap-datetimepicker.min.css'/>">
     <link rel="stylesheet" href="<c:url value='/resources/admin/vendor/font-awesome/css/font-awesome.min.css'/>">
     <link rel="stylesheet" href="<c:url value='/resources/admin/vendor/linearicons/style.css'/>">
-    <link rel="stylesheet" href="<c:url value='/resources/admin/vendor/chartist/css/chartist-custom.css'/>">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="<c:url value='/resources/admin/css/main.css'/>">
 
@@ -23,9 +23,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="<c:url value='/resources/admin/img/favicon.png'/>">
     <script src="<c:url value='/resources/admin/scripts/clock.js'/>"></script>
     <style>
-        .swal2-popup {
-            font-size: 1.6rem !important;
-        }
+
     </style>
 </head>
 <body onload="startTime()">
@@ -38,7 +36,10 @@
     <%@ include file="/common/admin/leftSidebar.jsp" %>
     <!-- /menu -->
     <script src="<c:url value='/resources/admin/vendor/jquery/jquery.min.js'/>"></script>
+    <script src="<c:url value='/resources/admin/scripts/moment.min.js'/>"></script>
     <script src="<c:url value='/resources/admin/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/resources/admin/scripts/bootstrap-datetimepicker.min.js'/>"></script>
+    <script src="<c:url value='/resources/admin/scripts/bootstrapvalidator.min.js'/>"></script>
     <script src="<c:url value='/resources/admin/scripts/sweetalert2@8.js'/>"></script>
     <script type="text/javascript" src="<c:url value="/resources/admin/scripts/jquery.twbsPagination.js"/>"></script>
     <decorator:body/>

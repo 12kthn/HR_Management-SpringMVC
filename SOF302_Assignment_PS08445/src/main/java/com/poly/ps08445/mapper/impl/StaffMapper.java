@@ -4,6 +4,7 @@ import com.poly.ps08445.entities.Staff;
 import com.poly.ps08445.dto.StaffDTO;
 import com.poly.ps08445.mapper.EntityMapper;
 import com.poly.ps08445.repositories.DepartRepository;
+import com.poly.ps08445.utils.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -49,14 +50,9 @@ public class StaffMapper implements EntityMapper<Staff, StaffDTO> {
         }
 
         if (staffModel.getBirthday() != null) {
-            try {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                staff.setBirthday(dateFormat.parse(staffModel.getBirthday()));
-            } catch (ParseException e) {
-                staff.setBirthday(new Date());
-            }
+            staff.setBirthday(TimeUtil.toDate(staffModel.getBirthday()));
         }
-
+        System.out.println(staff.toString2());
         return staff;
     }
 }

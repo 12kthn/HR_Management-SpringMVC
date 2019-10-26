@@ -43,14 +43,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="panel">
-                        <div class="panel-body">
+                        <div class="panel-body" style="margin-top: 20px;">
                             <form id="form">
                                 <input type="hidden" class="form-control" id="id" name="id">
-                                <div class="form-group">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="code">Mã phòng ban</label>
                                     <input type="text" class="form-control" id="code" name="code">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="name">Tên phòng ban</label>
                                     <input type="text" class="form-control" id="name" name="name">
                                 </div>

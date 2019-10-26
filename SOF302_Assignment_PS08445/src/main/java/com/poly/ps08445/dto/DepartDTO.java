@@ -1,7 +1,6 @@
 package com.poly.ps08445.dto;
 
 import com.poly.ps08445.entities.Depart;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +8,7 @@ import java.util.List;
 public class DepartDTO {
 
     private Integer id;
-    @NotEmpty(message = "Mã phòng ban không được để trống")
     private String code;
-    @NotEmpty(message = "Tên phòng ban không được để trống")
     private String name;
 
     public DepartDTO() {

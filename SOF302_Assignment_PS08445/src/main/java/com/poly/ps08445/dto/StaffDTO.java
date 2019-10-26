@@ -2,33 +2,22 @@ package com.poly.ps08445.dto;
 
 import com.poly.ps08445.entities.Staff;
 import com.poly.ps08445.utils.TimeUtil;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class StaffDTO {
     private Integer id;
-    @NotEmpty(message = "Tên nhân viên không được để trống")
     private String fullName;
-    @NotNull(message = "Vui lòng chọn giới tính")
     private Boolean gender;
-    @NotEmpty(message = "Vui lòng chọn ngày sinh")
     private String birthday;
-    @NotEmpty(message = "Vui lòng chọn ảnh")
     private String photo;
-    @NotEmpty(message = "Email không được để trống")
     private String email;
-    @NotEmpty(message = "Số điện thoại không được để trống")
     private String phone;
-    @Min(value = 1000000, message = "Lương phải là số nguyên lớn hơn 1 triệu")
     private double salary;
     private String notes;
-    @NotNull(message = "Vui lòng chọn phòng ban")
     private Integer departId;
     private String departName;
     private Integer page;

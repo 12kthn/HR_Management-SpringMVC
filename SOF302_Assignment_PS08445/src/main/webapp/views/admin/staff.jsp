@@ -16,9 +16,9 @@
                 <div class="panel-body" style="padding-top:25px;padding-bottom:25px;padding-left:0;">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="avatar-upload photo">
+                            <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="imageUpload"/>
                                     <label for="imageUpload"></label>
                                 </div>
                                 <div class="avatar-preview">
@@ -33,11 +33,11 @@
                             <input type="hidden" id="page" name="page" value="1">
                             <input type="hidden" id="maxResults" name="maxResults" value="10">
                             <div class="col-md-3">
-                                <div class="form-group fullName">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="fullName">Họ và tên</label>
                                     <input type="text" class="form-control" name="fullName" id="fullName">
                                 </div>
-                                <div class="form-group gender" id="gender">
+                                <div class="form-group" id="gender" style=" height: 83px;">
                                     <label>Giới tính</label>
                                     <div class="form-check form-check-inline" style="margin-top: 7px;">
                                         <input class="form-check-input" name="gender" value="true" type="radio" id="male">
@@ -46,21 +46,24 @@
                                         <label class="form-check-label" for="female">Nữ</label>
                                     </div>
                                 </div>
-                                <div class="form-group birthday">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="birthday">Ngày sinh</label>
-                                    <input type="date" pattern="dd/MM/yyyy" class="form-control" name="birthday" id="birthday">
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" name="birthday" id="birthday">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="form-group phone">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="phone">Số điện thoại</label>
                                     <input type="text" class="form-control" name="phone" id="phone">
                                 </div>
-                                <div class="form-group email">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" name="email" id="email">
                                 </div>
-                                <div class="form-group salary">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="salary">Lương</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="salary" id="salary">
@@ -70,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="form-group departId">
+                                <div class="form-group" style=" height: 83px;">
                                     <label for="depart">Phòng ban</label>
                                     <select class="form-control" id="depart" name="departId">
                                         <option value="" name="phongBan"></option>
@@ -176,11 +179,11 @@
                             <div class="modal-body">
                                 <form role="form" id="formEvaluate">
                                     <input type="hidden" class="form-control" id="staffId" name="staffId">
-                                    <div class="form-group">
+                                    <div class="form-group" style=" height: 80px;">
                                         <label for="record-fullName"> Nhân viên</label>
                                         <input type="text" class="form-control" id="record-fullName" readonly disabled>
                                     </div>
-                                    <div class="form-group type">
+                                    <div class="form-group" style=" height: 83px;">
                                         <label for="type">Loại</label>
                                         <select class="form-control" id="type" name="type">
                                             <option value=""></option>
@@ -188,15 +191,18 @@
                                             <option value="false">Kỷ luật</option>
                                         </select>
                                     </div>
-                                    <div class="form-group date">
+                                    <div class="form-group" style=" height: 83px;">
                                         <label for="date">Ngày ghi nhận</label>
-                                        <input type="date" class="form-control" name="date" id="date">
+                                        <div class="input-group date" id="datetimepicker2">
+                                            <input type="text" class="form-control" name="date" id="date">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                        </div>
                                     </div>
-                                    <div class="form-group reason">
+                                    <div class="form-group" style=" height: 210px;">
                                         <label for="reason"> Lý do</label>
                                         <textarea class="form-control" type="textarea" name="reason" id="reason" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-lg btn-primary btn-block" id="btnInsertRecord">Thêm đánh giá</button>
+                                    <button type="button" class="btn btn-lg btn-primary btn-block" id="btnInsertRecord">Thêm đánh giá</button>
                                 </form>
                             </div>
                         </div>

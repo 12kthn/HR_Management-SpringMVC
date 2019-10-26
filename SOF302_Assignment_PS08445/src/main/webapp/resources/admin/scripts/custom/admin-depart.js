@@ -11,7 +11,7 @@ $(document).ready(function () {
     btnDelete.prop('disabled', true);
 
     table.on("click", "tbody tr", function () {
-        $("#form div.alert").remove();
+        btnReset.trigger("click");
         $(this).addClass("highlight").siblings().removeClass("highlight");
         btnInsert.prop("disabled", true);
         btnUpdate.prop('disabled', false);
@@ -68,6 +68,31 @@ $(document).ready(function () {
         })
     }
 
+    form.bootstrapValidator({
+        message: 'Bạn chưa điền vào trường này',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            code: {
+                validators: {
+                    notEmpty: {},
+                    regexp: {
+                        regexp: /[A-Z]{2}/,
+                        message: 'Mã phòng ban chỉ chứa 2 ký tự in hoa'
+                    }
+                }
+            },
+            name: {
+                validators: {
+                    notEmpty: {}
+                }
+            }
+        }
+    });
+
     function insertDepart(data) {
         $.ajax({
             type: "POST",
@@ -109,18 +134,16 @@ $(document).ready(function () {
                             btnDelete.prop('disabled', true);
                             $("#table tbody").html(value);
                             $("#table tbody tr").each(function () {
-                                if($(this).find("td:eq(1)").text() === data["code"]){
+                                if ($(this).find("td:eq(1)").text() === data["code"]) {
                                     $(this).trigger("click");
                                 }
                             });
                         });
                 } else {
-                    console.log(3);
                     Swal.fire("Có lỗi xảy ra", "Cập nhật phòng ban thất bại", "error");
                 }
             },
             error: function () {
-                console.log(2);
                 Swal.fire("Có lỗi xảy ra", "Cập nhật phòng ban thất bại", "error");
             }
         })
@@ -144,95 +167,61 @@ $(document).ready(function () {
         })
     }
 
+
     form.on("click", "#btnInsert", function () {
-        var data = getArrayData();
-        delete data["id"];
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/depart/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $.ajax({
-                        type: "POST",
-                        contentType: 'application/json; charset=utf-8',
-                        dataType: 'json',
-                        url: contextPath + "/api/depart/duplicateCode",
-                        data: JSON.stringify(data),
-                        success: function (value) {
-                            if (value) {
-                                $("#form div.alert").remove();
-                                Swal.fire("Có lỗi xảy ra", "Mã phòng ban bị trùng, vui lòng nhập lại", "error")
-                            } else {
-                                $("#form div.alert").remove();
-                                insertDepart(data);
-                            }
-                        }
-                    });
-                } else {
-                    console.log("not validate")
-                    $("#form div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("#" + key).after("<div class='alert alert-warning alert-dismissible' role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            delete data["id"];
+            $.ajax({
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                url: contextPath + "/api/depart/duplicateCode",
+                data: JSON.stringify(data),
+                success: function (duplicatedCode) {
+                    if (duplicatedCode) {
+                        Swal.fire("Có lỗi xảy ra", "Mã phòng ban bị trùng, vui lòng nhập lại", "error")
+                    } else {
+                        insertDepart(data);
+                    }
+                },
+                error: function () {
+                    Swal.fire("Có lỗi xảy ra", "Thêm phòng ban thất bại", "error");
                 }
-            },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Thêm phòng ban thất bại", "error");
-            }
-        })
+            })
+        }
     });
 
     form.on("click", "#btnUpdate", function () {
-        var data = getArrayData();
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/depart/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    if (data["code"] === $("#table tbody tr.highlight td:nth-child(2)").text()) {
-                        updateDepart(data);
-                    } else {
-                        $.ajax({
-                            type: "POST",
-                            contentType: 'application/json; charset=utf-8',
-                            dataType: 'json',
-                            url: contextPath + "/api/depart/duplicateCode",
-                            data: JSON.stringify(data),
-                            success: function (value) {
-                                if (value) {
-                                    $("#form div.alert").remove();
-                                    Swal.fire("Có lỗi xảy ra", "Mã phòng ban bị trùng, vui lòng nhập lại", "error")
-                                } else {
-                                    $("#form div.alert").remove();
-                                    updateDepart(data);
-                                }
-                            },
-                            error: function () {
-                                console.log(1);
-                                Swal.fire("Có lỗi xảy ra", "Cập nhật phòng ban thất bại", "error");
-                            }
-                        });
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            if (data["code"] === $("#table tbody tr.highlight td:nth-child(2)").text()) {
+                updateDepart(data);
+            } else {
+                $.ajax({
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    url: contextPath + "/api/depart/duplicateCode",
+                    data: JSON.stringify(data),
+                    success: function (value) {
+                        if (value) {
+                            Swal.fire("Có lỗi xảy ra", "Mã phòng ban bị trùng, vui lòng nhập lại", "error")
+                        } else {
+                            updateDepart(data);
+                        }
+                    },
+                    error: function () {
+                        console.log(1);
+                        Swal.fire("Có lỗi xảy ra", "Cập nhật phòng ban thất bại", "error");
                     }
-                }  else {
-                    $("#form div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("#" + key).after("<div class='alert alert-warning alert-dismissible' role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
-                }
+                });
             }
-        });
+        }
     });
 
     btnDelete.click(function () {
@@ -261,6 +250,7 @@ $(document).ready(function () {
                 Swal.fire("Thành công", "Đã xóa hết các phòng ban được chọn", "success")
                     .then(function () {
                         btnDelete.prop('disabled', true);
+                        btnReset.trigger("click");
                         selectAll();
                     })
             }
@@ -268,10 +258,10 @@ $(document).ready(function () {
     });
 
     btnReset.click(function () {
-        $("#form")[0].reset();
-        $("#form input").val("");
+        form.bootstrapValidator('resetForm', true);
         btnInsert.removeAttr("disabled");
         btnUpdate.prop('disabled', true);
     });
 
-});
+})
+;

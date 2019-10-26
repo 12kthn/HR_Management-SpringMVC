@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var contextPath = window.location.protocol + "/" + window.location.pathname.split('/')[1];
     var table = $("#table");
+    var form = $("#form");
     var page = $("#page");
     var btnInsert = $("#btnInsert");
     var btnUpdate = $("#btnUpdate");
@@ -10,9 +11,56 @@ $(document).ready(function () {
     var currentPage = 1;
     var maxResult = $("#maxResults").val();
 
+    $('#datetimepicker').datetimepicker({
+        format: 'DD/MM/YYYY'
+    }).on('dp.change dp.show', function () {
+        form.data('bootstrapValidator')
+            .updateStatus('birthday', 'NOT_VALIDATED')
+            .validateField('birthday');
+    });
+
+    $("#staff").change(function () {
+
+    });
+
+    form.bootstrapValidator({
+        message: 'Bạn chưa điền vào trường này',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Vui lòng chọn nhân viên'
+                    }
+                }
+            },
+            type: {
+                validators: {
+                    notEmpty: {}
+                }
+            },
+            date: {
+                validators: {
+                    notEmpty: {
+                        message: 'Bạn chưa chọn ngày sinh'
+                    }
+                }
+            },
+            reason: {
+                validators: {
+                    notEmpty: {}
+                }
+            }
+        }
+    });
+
     function setDefaultDate() {
         var d = new Date();
-        var month = d.getMonth()+1;
+        var month = d.getMonth() + 1;
         var day = d.getDate();
         var year = d.getFullYear();
         $("#date").val(year + "-" + month + "-" + day);
@@ -35,11 +83,11 @@ $(document).ready(function () {
             data: JSON.stringify(data),
             success: function (newTotalPages) {
                 console.log(newTotalPages);
-                if (newTotalPages === 0){
+                if (newTotalPages === 0) {
                     page.val(1);
                     paginationInit(1, 1);
                 } else {
-                    if(newTotalPages < currentPage){
+                    if (newTotalPages < currentPage) {
                         paginationInit(newTotalPages, newTotalPages);
                     } else {
                         paginationInit(currentPage, newTotalPages);
@@ -75,7 +123,7 @@ $(document).ready(function () {
     btnDelete.prop('disabled', true);
 
     table.on("click", "tbody tr", function () {
-        $("div.alert").remove();
+        btnReset.trigger("click");
         $(this).addClass("highlight").siblings().removeClass("highlight");
         btnInsert.prop("disabled", true);
         btnUpdate.prop('disabled', false);
@@ -124,8 +172,16 @@ $(document).ready(function () {
     });
 
     $("#staff").change(function () {
-        $("#staffId").val(this.value);
+        $("#staffId").val($(this).val());
         $("#name").val($("select[id=staff] option:selected").text());
+        if ($(this).val() == -1) {
+            console.log("invalid");
+            form.data('bootstrapValidator').updateStatus('fullName', 'INVALID')
+        } else {
+            console.log("valid");
+            form.data('bootstrapValidator').updateStatus('fullName', 'VALID')
+        }
+
     });
 
     $("#btnSearch").click(function () {
@@ -193,7 +249,7 @@ $(document).ready(function () {
                         .then(function () {
                             reloadTableContent();
                             $("#table tbody tr").each(function () {
-                                if($(this).find("td:eq(0) input").val() === data["id"]){
+                                if ($(this).find("td:eq(0) input").val() === data["id"]) {
                                     $(this).trigger("click");
                                 }
                             });
@@ -233,7 +289,7 @@ $(document).ready(function () {
             "departId": $("#search-depart").val(),
             "staffFullName": $("#search-fullName").val(),
             "maxResults": maxResult,
-            "page" : page.val()
+            "page": page.val()
         };
         console.log(data);
         $.ajax({
@@ -253,61 +309,21 @@ $(document).ready(function () {
     }
 
     btnInsert.click(function () {
-        var data = getArrayData();
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/record/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $("#form div.alert").remove();
-                    insertRecord(data);
-                } else {
-                    console.log(res);
-                    $("#form div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("." + key).after("<div class='alert alert-warning alert-dismissible' role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
-                }
-            },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Thêm đánh giá thất bại", "error");
-            }
-        })
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            insertRecord(data);
+        }
     });
 
     btnUpdate.click(function () {
-        var data = getArrayData();
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            url: contextPath + "/api/record/validate",
-            data: JSON.stringify(data),
-            success: function (res) {
-                if (res.validated) {
-                    $("#form div.alert").remove();
-                    updateRecord(data);
-                } else {
-                    console.log(res);
-                    $("#form div.alert").remove();
-                    $.each(res.errorMessages, function (key, value) {
-                        $("." + key).after("<div class='alert alert-warning alert-dismissible' role='alert'>" +
-                            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> " +
-                            "<i class='fa fa-warning'></i>" + value +
-                            "</div>");
-                    })
-                }
-            },
-            error: function () {
-                Swal.fire("Có lỗi xảy ra", "Cập nhật đánh giá thất bại", "error");
-            }
-        })
+        var bootstrapValidator = form.data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            var data = getArrayData();
+            updateRecord(data);
+        }
     });
 
     btnDelete.click(function () {
@@ -339,8 +355,8 @@ $(document).ready(function () {
     });
 
     btnReset.click(function () {
-        $("#form")[0].reset();
-        $("#form input[type=text]").val("");
+        form.bootstrapValidator('resetForm', true);
+        $("#staff").val("-1");
         btnInsert.removeAttr("disabled");
         btnUpdate.prop('disabled', true);
         setDefaultDate();
@@ -367,13 +383,13 @@ $(document).ready(function () {
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (value) {
-                if (value){
+                if (value) {
                     Swal.fire("Thành công", "Gửi email tới địa chỉ " + to + " thành công", "success");
                 } else {
                     Swal.fire("Có lỗi xảy ra", "Gửi email tới địa chỉ " + to + " thất bại", "error");
                 }
             },
-            error:function () {
+            error: function () {
                 Swal.fire("Có lỗi xảy ra", "Gửi email tới địa chỉ " + to + " thất bại", "error");
             }
         });

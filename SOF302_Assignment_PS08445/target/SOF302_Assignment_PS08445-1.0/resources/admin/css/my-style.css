@@ -65,3 +65,18 @@ table tbody.hover tr {
     margin: 0;
     float: right;
 }
+
+.form-group{
+    margin-bottom: 5px;
+}
+
+.swal2-popup {
+    font-size: 1.6rem !important;
+}
+.form-control-feedback {
+    top: 0;
+    right: -30px;
+}
+.modal-body{
+    padding: 20px 30px;
+}

@@ -1,7 +1,6 @@
 package com.poly.ps08445.dto;
 
 import com.poly.ps08445.entities.User;
-import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserDTO {
     private Integer id;
@@ -9,11 +8,8 @@ public class UserDTO {
     private String password;
     private Boolean saveAccount;
 
-    @NotEmpty(message = "Vui lòng nhập mật khẩu cũ")
     private String oldPassword;
-    @NotEmpty(message = "Vui lòng nhập mật khẩu mới")
     private String newPassword;
-    @NotEmpty(message = "Vui lòng nhập xác nhận mật khẩu mới")
     private String confirmPassword;
 
     public UserDTO() {
